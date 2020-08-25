@@ -11,7 +11,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body style="background: rgb(63,94,251);
+background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,196,1) 100%);">
         <center><h1>Item_Outlet_Sales</h1></center>
         <div class="container-fluid" style="width: 50%;height: 100%">
             
@@ -66,9 +67,46 @@
                     <label for="exampleFormControlInput1">Item_Type_Combined</label>
                     <input type="form-input" type="text" name="Item_Type_Combined"  class="form-control" id="exampleFormControlInput1" placeholder="Item_Type_Combined 3:food 2:non-consumable 1:drinks" required>
                 </div>
-                <center><input type="submit" class="btn btn-success p-2" value="Predict"></center>
+                <center><input type="submit" class="btn btn-success p-3" value="Predict"></center>
                 
             </form>
         </div>
+<style type="text/css">
+    /* Footer */
+.footer{
+    flex-shrink: 0;
+    position: relative;
+    padding: 20px;
+    background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background-size: 500% 500%;
+    animation: change-gradient 10s ease-in-out infinite;
+}
+
+.footer-description{
+    color: #ffffff;
+    margin: 0;
+    font-size: 12px;
+}
+/* Contact */
+.contact-icon{
+    color: #ffffff;
+    padding: 7px;
+}
+
+.contact-icon:hover{
+    color: #8c8c8c;
+}
+
+</style>
+               <!-- Footer -->
+      <center> <div class='footer'>
+           <div class="contact">
+               <a target="_blank" href="https://github.com/pratyusa98"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/pdwibedy/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+           <p class='footer-description'>Made By Pratyusa Dwibedy.</p>
+       </div></center>
+
     </body>
 </html>
