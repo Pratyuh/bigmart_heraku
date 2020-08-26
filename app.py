@@ -45,7 +45,14 @@ def predict():
             Outlet_Size = 1
 
 
-        Outlet_Location_Type = int(request.form['Outlet_Location_Type'])
+        Outlet_Location_Type = request.form['Outlet_Location_Type']
+        if (Outlet_Location_Type == 'Tier 1'):
+            Outlet_Location_Type = 1
+        elif (Outlet_Location_Type == 'Tier 2'):
+            Outlet_Location_Type = 2
+        else:
+            Outlet_Location_Type = 3
+
 
         Outlet_Type = request.form['Outlet_Type']
         if (Outlet_Type == 'Supermarket Type1'):
@@ -57,7 +64,14 @@ def predict():
         else:
             Outlet_Type = 4
 
-        Item_Type_Combined = int(request.form['Item_Type_Combined'])
+        Item_Type_Combined = request.form['Item_Type_Combined']
+        if (Item_Type_Combined == 'Food'):
+            Item_Type_Combined = 3
+        elif (Item_Type_Combined == 'Non-Consumabl'):
+           Item_Type_Combined = 2
+        else:
+            Item_Type_Combined = 1
+
 
         data = [Item_Weight,Item_Fat_Content,
             Item_Visibility,Item_MRP,Outlet_Establishment_Year,
