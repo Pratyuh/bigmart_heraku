@@ -1,112 +1,290 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
     <head>
         <meta charset="utf-8">
-        <title>Item_Outlet_Sales</title>
-        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </head>
-    <body style="background: rgb(63,94,251);
-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,196,1) 100%);">
-        <center><h1>Item_Outlet_Sales</h1></center>
-        <div class="container-fluid" style="width: 50%;height: 100%">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Item Outlet Sale</title>
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <style type="text/css">
             
-            <form  action="{{ url_for('predict') }}" method="POST" style="margin-bottom: 20px;">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">item_weight</label>
-                    <input type="form-input" type="text" name="Item_Weight" class="form-control" id="exampleFormControlInput1" placeholder="item_weight" required>
+            html{
+    background-color: #f3f3f3;
+}
+
+.form-basic{
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 55px;
+    box-sizing: border-box;
+
+    background-color:  #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
+.form-basic .form-row{
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.form-basic .form-title-row{
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* The form title */
+
+.form-basic h1{
+    display: inline-block;
+    box-sizing: border-box;
+    color:  #4c565e;
+    font-size: 24px;
+    padding: 0 10px 15px;
+    border-bottom: 2px solid #6caee0;
+    margin: 0;
+}
+
+.form-basic .form-row > label span{
+    display: inline-block;
+    box-sizing: border-box;
+    color: #5F5F5F;
+    width: 180px;
+    text-align: right;
+    vertical-align: top;
+    padding: 12px 25px;
+}
+
+.form-basic input{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 240px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-basic input[type=radio],
+.form-basic input[type=checkbox]{
+    box-shadow: none;
+    width: auto;
+}
+
+.form-basic input[type=checkbox]{
+    margin-top: 13px;
+}
+
+.form-basic select{
+    background-color: #ffffff;
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    max-width: 240px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px 8px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-basic textarea{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 240px;
+    height: 80px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    font: normal 13px sans-serif;
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    resize: vertical;
+}
+
+.form-basic .form-radio-buttons{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.form-basic .form-radio-buttons > div{
+    margin-top: 10px;
+}
+
+.form-basic .form-radio-buttons label span{
+    margin-left: 8px;
+    color: #5f5f5f;
+    font-weight: normal;
+}
+
+.form-basic .form-radio-buttons input{
+    width: auto;
+}
+
+.form-basic button{
+    display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 14px 22px;
+    border: 0;
+    margin: 40px 183px 0;
+}
+
+/*  Making the form responsive. Remove this media query
+    if you don't need the form to work on mobile devices. */
+
+@media (max-width: 600px) {
+
+    .form-basic{
+        padding: 30px;
+        max-width: 480px;
+    }
+
+    .form-basic .form-row{
+        max-width: 300px;
+        margin: 25px auto;
+        text-align: left;
+    }
+
+    .form-basic .form-title-row{
+        margin-bottom: 50px;
+    }
+
+    .form-basic .form-row > label span{
+        display: block;
+        text-align: left;
+        padding: 0 0 15px;
+    }
+
+    .form-basic select{
+        width: 240px;
+    }
+
+    .form-basic input[type=checkbox]{
+        margin-top:0;
+    }
+
+    .form-basic .form-radio-buttons > div{
+        margin: 0 0 10px;
+    }
+
+    .form-basic button{
+        margin: 0;
+    }
+
+}
+
+
+        </style>
+        
+    </head>
+    <body>
+        <div class="main-content">
+            <!-- You only need this form and the form-basic.css -->
+            <form class="form-basic" action="{{ url_for('predict') }}" method="POST">
+                <div class="form-title-row">
+                    <h1>Item_Outlet_Sales</h1>
+                 
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">item_fat_content</label>
-                    <select class="form-control" id="exampleFormControlSelect1"  type="text" name="Item_Fat_Content">
-                        <option>Low Fat</option>
-                        <option>Regular</option>
-                        <option>Non-Edible</option>
-                    </select>
+               <div style="margin-bottom: 10px;margin-top: 10px">
+                 <p style="color: red">This is Technocolab Project Made By Pratyusa Dwibedy</p>
+
+              <p>Contact Me</p>
+               <a target="_blank" href="https://github.com/pratyusa98"><i class="fab fa-github fa-3x contact-icon" style="size: 20px;"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/pdwibedy/"><i class="fab fa-linkedin fa-3x contact-icon"></i></a>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Item_Visibility</label>
-                    <input type="form-input" type="text" name="Item_Visibility" class="form-control" id="exampleFormControlInput1" placeholder="Item_Visibility" required>
+                    
+                <div class="form-row">
+
+                    <label>
+                        <span>Item_Weight</span>
+                        <input type="text" name="Item_Weight" placeholder="Item_Weight">
+                    </label>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Item_MRP</label>
-                    <input type="form-input" type="text" name="Item_MRP" class="form-control" id="exampleFormControlInput1" placeholder="Item_MRP" required>
+                <div class="form-row">
+                    <label>
+                        <span>Item_Fat_Content</span>
+                        <select type="text" name="Item_Fat_Content">
+                            <option>Low Fat</option>
+                            <option>Regular</option>
+                            <option>Non-Edible</option>
+                        </select>
+                    </label>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Outlet_Establishment_Year</label>
-                    <input type="form-input" type="text" name="Outlet_Establishment_Year" class="form-control" id="exampleFormControlInput1" placeholder="Outlet_Establishment_Year" required>
+                <div class="form-row">
+                    <label>
+                        <span>Item_Visibility</span>
+                        <input  type="text" name="Item_Visibility" placeholder="Item_Visibility ex:- 0.019278">
+                    </label>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Outlet Size</label>
-                    <select class="form-control" id="exampleFormControlSelect1"  type="text" name="Outlet_Size">
-                        <option>Medium</option>
-                        <option>Small</option>
-                        <option>High</option>
-                    </select>
+                <div class="form-row">
+                    <label>
+                        <span>Item_MRP</span>
+                        <input type="text" name="Item_MRP" placeholder="Item_MRP">
+                    </label>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Outlet_Location_Type</label>
-                    <input type="form-input" type="text" name="Outlet_Location_Type" class="form-control" id="exampleFormControlInput1" placeholder="Outlet_Location_Type 3:Tier3 2:Tier2 1:Tier1" required>
+                <div class="form-row">
+                    <label>
+                        <span>Outlet_Est_Year</span>
+                        <input type="text" name="Outlet_Establishment_Year" placeholder="Outlet_Establishment_Year">
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label>
+                        <span>Outlet_Size</span>
+                        <select type="text" name="Outlet_Size">
+                            <option>Medium</option>
+                            <option>Small</option>
+                            <option>High</option>
+                        </select>
+                    </label>
+                </div>
+
+             
+
+                   <div class="form-row">
+                    <label>
+                        <span>Outlet_Location_Type</span>
+                        <select type="text" name="Outlet_Location_Type">
+                            <option>Tier 1</option>
+                            <option>Tier 2</option>
+                            <option>Tier 3</option>
+                        </select>
+                    </label>
+                </div>
+
+
+                <div class="form-row">
+                    <label>
+                        <span>Outlet_Type</span>
+                        <select type="text" name="Outlet_Type">
+                            <option>Supermarket Type1</option>
+                            <option>Grocery Store</option>
+                            <option>Supermarket Type3</option>
+                            <option>Supermarket Type2</option>
+                        </select>
+                    </label>
+                </div>
+
+           
+                  <div class="form-row">
+                    <label>
+                        <span>Item_Type_Combined</span>
+                        <select  type="text" name="Item_Type_Combined">
+                            <option>Food</option>
+                            <option>Drinks</option>
+                            <option>Non-Consumable</option>
+                           
+                        </select>
+                    </label>
                 </div>
                 
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Outlet Type</label>
-                    <select class="form-control" id="exampleFormControlSelect1"  type="text" name="Outlet_Type">
-                        <option>Supermarket Type1</option>
-                        <option>Grocery Store</option>
-                        <option>Supermarket Type3</option>
-                        <option>Supermarket Type2</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Item_Type_Combined</label>
-                    <input type="form-input" type="text" name="Item_Type_Combined"  class="form-control" id="exampleFormControlInput1" placeholder="Item_Type_Combined 3:food 2:non-consumable 1:drinks" required>
-                </div>
-                <center><input type="submit" class="btn btn-success p-3" value="Predict"></center>
                 
+                
+                <div class="form-row">
+                    
+                    <input type="submit" value="Predict" style="background-color: green;color: white;width: 80px;">
+                </div>
             </form>
         </div>
-<style type="text/css">
-    /* Footer */
-.footer{
-    flex-shrink: 0;
-    position: relative;
-    padding: 20px;
-    background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-    background-size: 500% 500%;
-    animation: change-gradient 10s ease-in-out infinite;
-}
-
-.footer-description{
-    color: #ffffff;
-    margin: 0;
-    font-size: 12px;
-}
-/* Contact */
-.contact-icon{
-    color: #ffffff;
-    padding: 7px;
-}
-
-.contact-icon:hover{
-    color: #8c8c8c;
-}
-
-</style>
-               <!-- Footer -->
-      <center> <div class='footer'>
-           <div class="contact">
-               <a target="_blank" href="https://github.com/pratyusa98"><i class="fab fa-github fa-lg contact-icon"></i></a>
-               <a target="_blank" href="https://www.linkedin.com/in/pdwibedy/"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
-           </div>
-           <p class='footer-description'>Made By Pratyusa Dwibedy.</p>
-       </div></center>
-
     </body>
 </html>
